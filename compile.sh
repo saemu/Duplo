@@ -18,8 +18,9 @@ if [ ! -d "build" ]; then
 fi
 
 p "compiling..." &&
-pushd build
-make &&
-popd &&
-bats --recursive tests &&
+rm -rf build
+pushd build || exit 1
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake build . --target all test
+popd || exit 1
 p "OK!";

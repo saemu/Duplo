@@ -1,5 +1,5 @@
 setup() {
-    run ./build/duplo -xml tests/Simple/LineNumbers.lst out.xml
+    run ${DUPLO} -xml tests/Simple/LineNumbers.lst out.xml
 }
 
 @test "LineNumbers.c" {
